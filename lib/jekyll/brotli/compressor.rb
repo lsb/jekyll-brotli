@@ -2,6 +2,7 @@
 
 require 'jekyll/brotli/config'
 require 'brotli'
+require 'parallel'
 
 module Jekyll
   ##
