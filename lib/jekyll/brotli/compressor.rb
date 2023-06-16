@@ -25,7 +25,7 @@ module Jekyll
       #
       # @return void
       def self.compress_site(site)
-        ::Parallel.each(site.each_site_file.to_a) do |file|
+        ::Parallel.each(site.enum_for(:each_site_file)) do |file|
           next unless regenerate? file.destination(site.dest), site
 
           compress_file(
