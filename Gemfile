@@ -8,3 +8,4 @@ gemspec
 jekyll_version = ENV["JEKYLL_VERSION"] || "~> 4.0"
 
 gem "jekyll", jekyll_version
+gem "parallel"
