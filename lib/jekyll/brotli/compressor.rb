@@ -25,7 +25,9 @@ module Jekyll
       #
       # @return void
       def self.compress_site(site)
-        ::Parallel.each(site.enum_for(:each_site_file)) do |file|
+        ::Parallel.each(
+          site.enum_for(:each_site_file).to_a.sort_by {|f| ::File.size?(f) }.reverse
+        ) do |file|
           next unless regenerate? file.destination(site.dest), site
 
           compress_file(
